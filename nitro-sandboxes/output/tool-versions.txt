@@ -1,0 +1,6 @@
+kind kind v0.33.0 go1.26.7 linux/amd64
+docker 26.1.5+dfsg1
+node image kindest/node:v1.37.0
+containerd github.com/containerd/containerd/v2 v2.3.4 db8809540e1a7a9da5d518876894933ff55692ab
+runsc version release-20261109.0
+Linux 6.12.113+

@@ -1,0 +1,47 @@
+--- waiting 0s so the VPA recommender has some history ---
+--- VPA recommendations (target / upper bound) ---
+reports  target cpu=25m mem=250Mi   upperBound cpu=3938m mem=12.1Gi
+web      target cpu=25m mem=250Mi   upperBound cpu=3767m mem=20.3Gi
+worker   target cpu=78m mem=250Mi   upperBound cpu=27584m mem=53.8Gi
+--- apply new requests: VPA target, CPU roughly doubled for headroom, memory rounded to 256Mi ---
+deployment.apps/web resource requirements updated
+deployment.apps/worker resource requirements updated
+deployment.apps/reports resource requirements updated
+Waiting for deployment "web" rollout to finish: 1 out of 3 new replicas have been updated...
+Waiting for deployment "web" rollout to finish: 1 out of 3 new replicas have been updated...
+Waiting for deployment "web" rollout to finish: 1 out of 3 new replicas have been updated...
+Waiting for deployment "web" rollout to finish: 2 out of 3 new replicas have been updated...
+Waiting for deployment "web" rollout to finish: 2 out of 3 new replicas have been updated...
+Waiting for deployment "web" rollout to finish: 2 out of 3 new replicas have been updated...
+Waiting for deployment "web" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "web" rollout to finish: 1 old replicas are pending termination...
+deployment "web" successfully rolled out
+Waiting for deployment "worker" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "worker" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "worker" rollout to finish: 1 old replicas are pending termination...
+deployment "worker" successfully rolled out
+deployment "reports" successfully rolled out
+deployment "search" successfully rolled out
+[note: the run of fix.sh was interrupted during its final 'sleep 60'; the last two steps below were then run by hand, same commands]
+--- pods ---
+reports-d8d5b6b74-j5z5g Running restarts=0
+reports-d8d5b6b74-nv8w5 Running restarts=0
+search-5d4d67675f-54vjc Running restarts=0
+search-5d4d67675f-f2hcb Running restarts=0
+web-7459fbcd44-q4z64 Running restarts=0
+web-7459fbcd44-svlts Running restarts=0
+web-7459fbcd44-vglrs Running restarts=0
+worker-5c6fcf69fd-f52fd Running restarts=0
+worker-5c6fcf69fd-wzx5q Running restarts=0
+--- requests vs usage after right-sizing ---
+(requests counted for Running pods only)
+deploy   run/pods  cpu req cpu used  mem req mem used
+reports       2/2      50m       2m    512Mi     46Mi
+search        2/2    1000m       2m    512Mi      6Mi
+web           3/3     150m      24m    768Mi    129Mi
+worker        2/2     300m     107m    512Mi    246Mi
+total                1500m     135m   2304Mi    427Mi
+--- node: requested vs allocatable, and real usage ---
+  cpu                2600m (32%)   200m (2%)
+  memory             3294Mi (20%)  3644Mi (22%)
+real usage: cpu 261m (3%), memory 1192Mi (7%)

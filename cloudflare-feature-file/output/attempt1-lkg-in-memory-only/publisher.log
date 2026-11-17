@@ -1,0 +1,15 @@
+03:08:06 [publisher] gen=1 node-a features=60 -> 3 edges
+03:08:11 [publisher] gen=2 node-b features=60 -> 3 edges
+03:08:16 [publisher] gen=3 node-b features=120 -> 3 edges
+03:08:21 [publisher] gen=4 node-b features=120 -> 3 edges
+03:08:26 [publisher] gen=5 node-b features=120 -> 3 edges
+03:08:31 [publisher] gen=6 node-a features=60 -> 3 edges
+03:08:36 [publisher] gen=7 node-b features=120 -> 3 edges
+03:08:41 [publisher] gen=8 node-a features=60 -> 3 edges
+03:08:46 [publisher] gen=9 node-b features=120 -> 3 edges
+03:08:51 [publisher] gen=10 node-b features=120 -> 3 edges
+03:08:56 [publisher] gen=11 node-b features=120 -> 3 edges
+03:09:01 [publisher] gen=12 node-a features=120 -> 3 edges
+03:09:06 [publisher] gen=13 node-a features=120 -> 3 edges
+03:09:11 [publisher] gen=14 node-a features=120 -> 3 edges
+03:09:16 [publisher] gen=15 node-b features=120 -> 3 edges

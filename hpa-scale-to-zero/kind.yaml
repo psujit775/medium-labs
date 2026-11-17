@@ -1,0 +1,8 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: hpa-zero-lab
+networking:
+  kubeProxyMode: nftables   # see the top README: iptables mode needs xt_statistic
+nodes:
+  - role: control-plane
+    image: kindest/node:v1.37.0   # HPAScaleToZero is beta and on by default from 1.37

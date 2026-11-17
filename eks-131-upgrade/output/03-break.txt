@@ -1,0 +1,23 @@
+--- upgrade control plane to v1.32.11 (takes ~2 minutes) ---
+[upgrade] SUCCESS! A control plane node of your cluster was upgraded to "v1.32.11".
+control plane upgrade took 115s
+  "gitVersion": "v1.32.11",
+NAME                       KUBELET
+eks131-lab-control-plane   v1.31.14
+eks131-lab-worker          v1.31.14
+eks131-lab-worker2         v1.31.14
+--- the objects already in the cluster survived (stored as v1) ---
+NAME                                                 PRIORITYLEVEL   MATCHINGPRECEDENCE   DISTINGUISHERMETHOD   AGE    MISSINGPL
+flowschema.flowcontrol.apiserver.k8s.io/batch-jobs   batch-jobs      2000                 ByUser                2m9s   False
+
+NAME                                                                 TYPE      NOMINALCONCURRENCYSHARES   QUEUES   HANDSIZE   QUEUELENGTHLIMIT   AGE
+prioritylevelconfiguration.flowcontrol.apiserver.k8s.io/batch-jobs   Limited   5                          16       4          50                 2m9s
+--- but re-applying the manifests from Git fails ---
+deployment.apps/orders-api unchanged
+poddisruptionbudget.policy/orders-api configured
+Error from server (NotFound): error when creating "manifests/apf.yaml": the server could not find the requested resource
+Error from server (NotFound): error when creating "manifests/apf.yaml": the server could not find the requested resource
+--- drain eks131-lab-worker (where orders-api runs) so its kubelet can be upgraded ---
+error when evicting pods/"orders-api-8648db6689-q2qxd" -n "default" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+error: unable to drain node "eks131-lab-worker" due to error: error when evicting pods/"orders-api-8648db6689-q2qxd" -n "default": global timeout reached: 40s, continuing command...
+node/eks131-lab-worker cordoned

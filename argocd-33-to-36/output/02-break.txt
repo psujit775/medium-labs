@@ -1,0 +1,73 @@
+--- kubectl apply -n argocd -f .../v3.4.13/manifests/install.yaml (no --server-side) ---
+Warning: resource customresourcedefinitions/applications.argoproj.io is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on res
+Warning: resource customresourcedefinitions/applicationsets.argoproj.io is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on 
+Warning: resource customresourcedefinitions/appprojects.argoproj.io is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on reso
+Warning: resource serviceaccounts/argocd-application-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resource
+Warning: resource serviceaccounts/argocd-applicationset-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resou
+Warning: resource serviceaccounts/argocd-dex-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created de
+Warning: resource serviceaccounts/argocd-notifications-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resour
+Warning: resource serviceaccounts/argocd-redis is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declara
+Warning: resource serviceaccounts/argocd-repo-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created d
+Warning: resource serviceaccounts/argocd-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declar
+Warning: resource roles/argocd-application-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created 
+Warning: resource roles/argocd-applicationset-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources creat
+Warning: resource roles/argocd-dex-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declarativel
+Warning: resource roles/argocd-notifications-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources create
+Warning: resource roles/argocd-redis is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declaratively by 
+Warning: resource roles/argocd-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declaratively by
+Warning: resource clusterroles/argocd-application-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources c
+Warning: resource clusterroles/argocd-applicationset-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resource
+Warning: resource clusterroles/argocd-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declarati
+Warning: resource rolebindings/argocd-application-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources c
+Warning: resource rolebindings/argocd-applicationset-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resource
+Warning: resource rolebindings/argocd-dex-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created decla
+Warning: resource rolebindings/argocd-notifications-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources
+Warning: resource rolebindings/argocd-redis is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declarativ
+Warning: resource rolebindings/argocd-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declarati
+Warning: resource clusterrolebindings/argocd-application-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on reso
+Warning: resource clusterrolebindings/argocd-applicationset-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on r
+Warning: resource clusterrolebindings/argocd-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created de
+Warning: resource configmaps/argocd-cm is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declaratively b
+Warning: resource configmaps/argocd-cmd-params-cm is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created decl
+Warning: resource configmaps/argocd-gpg-keys-cm is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declar
+Warning: resource configmaps/argocd-notifications-cm is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created d
+Warning: resource configmaps/argocd-rbac-cm is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declarativ
+Warning: resource configmaps/argocd-ssh-known-hosts-cm is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created
+Warning: resource configmaps/argocd-tls-certs-cm is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created decla
+Warning: resource secrets/argocd-notifications-secret is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created 
+Warning: resource secrets/argocd-secret is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declaratively 
+Warning: resource services/argocd-applicationset-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources cr
+Warning: resource services/argocd-dex-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declarati
+Warning: resource services/argocd-metrics is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declarativel
+Warning: resource services/argocd-notifications-controller-metrics is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resou
+Warning: resource services/argocd-redis is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declaratively 
+Warning: resource services/argocd-repo-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declarat
+Warning: resource services/argocd-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declaratively
+Warning: resource services/argocd-server-metrics is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created decla
+Warning: resource deployments/argocd-applicationset-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources
+Warning: resource deployments/argocd-dex-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declar
+Warning: resource deployments/argocd-notifications-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources 
+Warning: resource deployments/argocd-redis is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declarative
+Warning: resource deployments/argocd-repo-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created decla
+Warning: resource deployments/argocd-server is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declarativ
+Warning: resource statefulsets/argocd-application-controller is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources c
+Warning: resource networkpolicies/argocd-application-controller-network-policy is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be u
+Warning: resource networkpolicies/argocd-applicationset-controller-network-policy is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only b
+Warning: resource networkpolicies/argocd-dex-server-network-policy is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resou
+Warning: resource networkpolicies/argocd-notifications-controller-network-policy is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be
+Warning: resource networkpolicies/argocd-redis-network-policy is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources 
+Warning: resource networkpolicies/argocd-repo-server-network-policy is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on reso
+Warning: resource networkpolicies/argocd-server-network-policy is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources
+The CustomResourceDefinition "applicationsets.argoproj.io" is invalid: metadata.annotations: Too long: may not be more than 262144 bytes
+exit code: 1
+--- what is running now? ---
+NAME                               IMAGE
+argocd-applicationset-controller   quay.io/argoproj/argocd:v3.4.13
+argocd-dex-server                  ghcr.io/dexidp/dex:v2.45.0
+argocd-notifications-controller    quay.io/argoproj/argocd:v3.4.13
+argocd-redis                       public.ecr.aws/docker/library/redis:8.2.3-alpine
+argocd-repo-server                 quay.io/argoproj/argocd:v3.4.13
+argocd-server                      quay.io/argoproj/argocd:v3.4.13
+argocd-application-controller      quay.io/argoproj/argocd:v3.4.13
+
+server image: quay.io/argoproj/argocd:v3.4.13 | guestbook: Synced/Healthy | guestbook pod: guestbook-ui-6595f948db-c44fb

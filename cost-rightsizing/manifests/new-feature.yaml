@@ -1,0 +1,17 @@
+# The new service the team wants to ship today. It only asks for half a CPU.
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: search, namespace: shop}
+spec:
+  replicas: 2
+  selector: {matchLabels: {app: search}}
+  template:
+    metadata: {labels: {app: search}}
+    spec:
+      containers:
+      - name: app
+        image: python:3.13-alpine
+        command: ["python3", "-c", "import time\nwhile True: time.sleep(1)"]
+        resources:
+          requests: {cpu: 500m, memory: 256Mi}
+          limits: {memory: 256Mi}

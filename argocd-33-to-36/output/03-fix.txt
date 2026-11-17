@@ -1,0 +1,26 @@
+=== hop to v3.4.13 ===
+rollout took 21s
+server image: quay.io/argoproj/argocd:v3.4.13 | guestbook: Synced/Healthy | guestbook pod: guestbook-ui-6595f948db-c44fb
+errors in the last 3m (controller, repo-server, server):
+=== hop to v3.5.7 ===
+rollout took 44s
+server image: quay.io/argoproj/argocd:v3.5.7 | guestbook: Synced/Healthy | guestbook pod: guestbook-ui-6595f948db-c44fb
+errors in the last 3m (controller, repo-server, server):
+=== hop to v3.6.1 ===
+rollout took 26s
+server image: quay.io/argoproj/argocd:v3.6.1 | guestbook: Synced/Healthy | guestbook pod: guestbook-ui-6595f948db-c44fb
+errors in the last 3m (controller, repo-server, server):
+=== final ===
+NAME                               IMAGE
+argocd-applicationset-controller   quay.io/argoproj/argocd:v3.6.1
+argocd-dex-server                  ghcr.io/dexidp/dex:v2.46.0
+argocd-notifications-controller    quay.io/argoproj/argocd:v3.6.1
+argocd-redis                       public.ecr.aws/docker/library/redis:8.10.1-alpine
+argocd-repo-server                 quay.io/argoproj/argocd:v3.6.1
+argocd-server                      quay.io/argoproj/argocd:v3.6.1
+argocd-application-controller      quay.io/argoproj/argocd:v3.6.1
+argocd: v3.6.1+94037c4
+
+real	3m2.768s
+user	0m3.218s
+sys	0m0.836s

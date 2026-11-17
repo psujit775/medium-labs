@@ -1,0 +1,40 @@
+--- 1. job on gVisor (runtimeClassName: gvisor) ---
+uname -r      : 4.19.0-gvisor
+/proc/version : Linux version 4.19.0-gvisor #1 SMP Sun Jan 10 15:06:54 PST 2016
+cpu model     : unknown
+getpid                  : OK
+unshare(CLONE_NEWUSER)  : OK
+syslog (read dmesg)     : OK
+mount tmpfs             : EPERM (Operation not permitted)
+bpf                     : EPERM (Operation not permitted)
+perf_event_open         : ENODEV (No such device)
+io_uring_setup          : ENOSYS (Function not implemented)
+userfaultfd             : ENOSYS (Function not implemented)
+keyctl                  : ENOSYS (Function not implemented)
+kexec_load              : EPERM (Operation not permitted)
+init_module             : EPERM (Operation not permitted)
+--- 2. enable oci-seccomp in runsc so the pod's RuntimeDefault profile is applied inside the sandbox ---
+uname -r      : 4.19.0-gvisor
+/proc/version : Linux version 4.19.0-gvisor #1 SMP Sun Jan 10 15:06:54 PST 2016
+cpu model     : unknown
+getpid                  : OK
+unshare(CLONE_NEWUSER)  : EPERM (Operation not permitted)
+syslog (read dmesg)     : EPERM (Operation not permitted)
+mount tmpfs             : EPERM (Operation not permitted)
+bpf                     : EPERM (Operation not permitted)
+perf_event_open         : EPERM (Operation not permitted)
+io_uring_setup          : EPERM (Operation not permitted)
+userfaultfd             : EPERM (Operation not permitted)
+keyctl                  : EPERM (Operation not permitted)
+kexec_load              : EPERM (Operation not permitted)
+init_module             : EPERM (Operation not permitted)
+--- 3. startup: kubectl run -> pod Ready, 5 pods per runtime, image already on the node ---
+runc: 0.54 0.55 0.54 0.58 0.54 seconds
+gvisor: 0.56 0.58 0.60 0.58 0.56 seconds
+--- 4. memory: what each sleeping pod costs on the node (RSS, KiB) ---
+runc pods   : 932 1048 956 988 968
+gVisor Sentry per pod: 35372 28 776 776 1144 1144 35440 28 764 764 1064 1064 35864 28 776 776 1100 1100 35808 28 776 776 1108 1108 36376 28 776 776 1080 1080
+
+real	0m17.415s
+user	0m1.271s
+sys	0m0.531s

@@ -1,0 +1,7 @@
+# per-run scratch directories created by the scripts
+run/
+__pycache__/
+*.pyc
+*.tar.bz2
+*.sha512
+.DS_Store

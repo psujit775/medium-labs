@@ -1,0 +1,14 @@
+--- extra checks after the last hop (run by hand) ---
+warnings logged in the last 10m, by component:
+statefulset/argocd-application-controller: 0
+deploy/argocd-repo-server: 0
+deploy/argocd-server: 0
+deploy/argocd-applicationset-controller: 0
+OTLP env on repo-server:
+7:      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"labels":{"app.kubernetes.io/component":"repo-server","app.kubernetes.io/nam ...[truncated: the whole Deployment as JSON, left behind by the client-side apply in break.sh]
+192:        - name: ARGOCD_REPO_SERVER_OTLP_ADDRESS
+198:        - name: ARGOCD_REPO_SERVER_OTLP_INSECURE
+204:        - name: ARGOCD_REPO_SERVER_OTLP_HEADERS
+210:        - name: ARGOCD_REPO_SERVER_OTLP_ATTRS
+216:        - name: ARGOCD_REPO_SERVER_OTLP_SAMPLE_RATIO
+kubectl kube-apiserver

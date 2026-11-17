@@ -1,0 +1,1 @@
+[cleanup] stopped all lab processes and removed ./run

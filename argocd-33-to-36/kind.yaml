@@ -1,0 +1,8 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: argocd-lab
+networking:
+  kubeProxyMode: nftables   # see the top README: iptables mode needs xt_statistic
+nodes:
+  - role: control-plane
+    image: kindest/node:v1.35.8   # inside the tested range of both Argo CD 3.3 and 3.6

@@ -1,0 +1,14 @@
+Notes from the first run of setup.sh (17 Nov 2026, IST), before the exporter fix.
+
+The fake queue first answered /metrics without a Content-Type header. Prometheus v3.16.0 marked the
+target down, so the adapter had nothing to serve:
+
+  Prometheus target health: down
+  lastError: non-compliant scrape target sending blank Content-Type and no fallback_scrape_protocol specified for target
+
+  kubectl get --raw '/apis/external.metrics.k8s.io/v1beta1/namespaces/default/queue_consumer_lag?labelSelector=name%3Dworker_tasks'
+  Error from server (NotFound): the server could not find the metric queue_consumer_lag for namespaces
+
+Note that the APIService still showed Available=True. "Available" only means the adapter answers,
+not that your metric exists. Fix: send `Content-Type: text/plain; version=0.0.4` from the exporter
+(or set fallback_scrape_protocol in the scrape config).

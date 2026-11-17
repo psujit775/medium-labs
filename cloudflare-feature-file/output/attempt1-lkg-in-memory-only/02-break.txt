@@ -1,0 +1,50 @@
+--- stage 1: grant on node-b only (half the cluster) ---
+[db] grant node-b
+03:08:13 [probe] 200 200 200 | 200 OK edge1 gen=2 bot_score=42
+03:08:14 [probe] 200 200 200 | 200 OK edge1 gen=2 bot_score=42
+03:08:15 [probe] 200 200 200 | 200 OK edge1 gen=2 bot_score=42
+03:08:16 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:17 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:18 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:19 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:20 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:21 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:22 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:23 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:24 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:25 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:26 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:27 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:28 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:29 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:30 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:31 [probe] 200 200 200 | 200 OK edge1 gen=6 bot_score=42
+03:08:32 [probe] 200 200 200 | 200 OK edge1 gen=6 bot_score=42
+03:08:33 [probe] 200 200 200 | 200 OK edge1 gen=6 bot_score=42
+03:08:34 [probe] 200 200 200 | 200 OK edge1 gen=6 bot_score=42
+03:08:35 [probe] 200 200 200 | 200 OK edge1 gen=6 bot_score=42
+03:08:36 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:37 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:38 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:39 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:40 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:41 [probe] 200 200 200 | 200 OK edge1 gen=8 bot_score=42
+03:08:42 [probe] 200 200 200 | 200 OK edge1 gen=8 bot_score=42
+[probe] summary: 30 ok, 60 errors (67% 5xx)
+--- stage 2: grant on every node ---
+[db] grant node-a
+03:08:49 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:50 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:51 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:52 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:53 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:54 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:55 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:56 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:57 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+03:08:58 [probe] 500 500 500 | 500 edge1 worker panicked: feature count 120 exceeds preallocated 100
+[probe] summary: 0 ok, 30 errors (100% 5xx)
+
+real	0m46.295s
+user	0m0.157s
+sys	0m0.035s

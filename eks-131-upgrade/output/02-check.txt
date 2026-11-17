@@ -1,0 +1,18 @@
+--- pluto: scan the manifests in Git for APIs removed by 1.32 ---
+NAME         NAMESPACE   KIND                         VERSION                                REPLACEMENT                       DEPRECATED   DEPRECATED IN   REMOVED   REMOVED IN   REPL AVAIL   REPL AVAIL IN  
+batch-jobs   <UNKNOWN>   PriorityLevelConfiguration   flowcontrol.apiserver.k8s.io/v1beta3   flowcontrol.apiserver.k8s.io/v1   true         v1.31.0         true      v1.32.0      false                       
+batch-jobs   <UNKNOWN>   FlowSchema                   flowcontrol.apiserver.k8s.io/v1beta3   flowcontrol.apiserver.k8s.io/v1   true         v1.24.0         true      v1.32.0      false                       
+
+--- kubent: scan the live cluster ---
+__________________________________________________________________________________________
+>>> Deprecated APIs removed in 1.32 <<<
+------------------------------------------------------------------------------------------
+KIND                         NAMESPACE     NAME         API_VERSION                            REPLACE_WITH (SINCE)
+FlowSchema                   <undefined>   batch-jobs   flowcontrol.apiserver.k8s.io/v1beta3   flowcontrol.apiserver.k8s.io/v1 (1.32.0)
+PriorityLevelConfiguration   <undefined>   batch-jobs   flowcontrol.apiserver.k8s.io/v1beta3   flowcontrol.apiserver.k8s.io/v1 (1.32.0)
+--- API server: which deprecated APIs have clients actually called? ---
+apiserver_requested_deprecated_apis{group="flowcontrol.apiserver.k8s.io",removed_release="1.32",resource="flowschemas",subresource="",version="v1beta3"} 1
+apiserver_requested_deprecated_apis{group="flowcontrol.apiserver.k8s.io",removed_release="1.32",resource="prioritylevelconfigurations",subresource="",version="v1beta3"} 1
+--- PDBs that allow zero disruptions (these block a node drain) ---
+NS        NAME         ALLOWED
+default   orders-api   0

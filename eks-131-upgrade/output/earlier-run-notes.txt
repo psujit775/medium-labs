@@ -1,0 +1,18 @@
+Notes from earlier runs of this lab on the same machine (17 Nov 2026, IST), before the scripts were final.
+These lines were copied from the terminal of those runs.
+
+1) An earlier fix.sh used `kubectl scale deploy/orders-api --replicas=2` and then re-applied manifests/.
+   The re-apply put replicas back to 1 (manifest said 1), so the PDB went back to ALLOWED 0:
+     deployment.apps/orders-api configured
+     NAME         READY   UP-TO-DATE   AVAILABLE
+     orders-api   1/1     2            1
+   Fix: change replicas in the manifest, not with kubectl scale.
+
+2) An earlier fix.sh checked the nodes right after restarting the control-plane kubelet. The new
+   kubelet restarted the API server static pod, and for a few seconds the admin user got:
+     Error from server (Forbidden): nodes is forbidden: User "kubernetes-admin" cannot list resource "nodes" in API group "" at the cluster scope
+   kube-apiserver showed `0/1 Running, 2 restarts`. A few seconds later the same command worked.
+   Fix: wait for `kubectl get --raw /readyz` to return ok before checking anything (verify.sh).
+
+3) With a 2-node cluster (1 control plane + 1 worker), the second replica stayed Pending: the only
+   worker had been cordoned by the failed drain and the control plane is tainted. The lab now uses 2 workers.

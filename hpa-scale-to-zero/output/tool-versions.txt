@@ -1,0 +1,7 @@
+kind kind v0.33.0 go1.26.7 linux/amd64
+docker 26.1.5+dfsg1
+node image kindest/node:v1.37.0 (kube-proxy nftables)
+  "gitVersion": "v1.37.0",
+prom/prometheus:v3.16.0, prometheus-adapter chart 5.4.2 (app v0.12.0)
+v4.3.2+g8346aaa
+Linux 6.12.113+

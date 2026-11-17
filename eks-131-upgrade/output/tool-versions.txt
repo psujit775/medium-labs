@@ -1,0 +1,6 @@
+kind kind v0.33.0 go1.26.7 linux/amd64
+docker 26.1.5+dfsg1
+Client Version: v1.37.2
+Version:5.24.5 Commit:d7d4f3f312f5b65c989a5a4eb92eb6b4ef86e29f
+version 0.7.3
+Linux 6.12.113+

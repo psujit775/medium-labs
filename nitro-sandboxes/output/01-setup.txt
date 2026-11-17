@@ -1,0 +1,30 @@
+Creating cluster "sandbox-lab" ...
+ • Ensuring node image (kindest/node:v1.37.0) 🖼️  ...
+ ✓ Ensuring node image (kindest/node:v1.37.0) 🖼️
+ • Preparing nodes 📦   ...
+ ✓ Preparing nodes 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Waiting ≤ 2m0s for control-plane = Ready ⏳  ...
+ ✓ Waiting ≤ 2m0s for control-plane = Ready ⏳
+ • Ready after 18s 💚
+Set kubectl context to "kind-sandbox-lab"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-sandbox-lab
+
+Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
+gvisor.tar.bz2: OK
+runsc version release-20261109.0
+runtimeclass.node.k8s.io/gvisor created
+configmap/probe created
+image pre-pulled
+NAME     HANDLER   AGE
+gvisor   runsc     2s
+host kernel: 6.12.113+

@@ -1,0 +1,16 @@
+job.batch/untrusted-runc created
+--- job on runc (default runtime), node kernel is 6.12.113+ ---
+uname -r      : 6.12.113+
+/proc/version : Linux version 6.12.113+ (root@f3102b574387) (gcc (Debian 12.2.0-14+deb12u1) 12.2
+cpu model     : Intel(R) Xeon(R) Processor
+getpid                  : OK
+unshare(CLONE_NEWUSER)  : EPERM (Operation not permitted)
+syslog (read dmesg)     : EPERM (Operation not permitted)
+mount tmpfs             : EPERM (Operation not permitted)
+bpf                     : EPERM (Operation not permitted)
+perf_event_open         : EPERM (Operation not permitted)
+io_uring_setup          : EPERM (Operation not permitted)
+userfaultfd             : EPERM (Operation not permitted)
+keyctl                  : EPERM (Operation not permitted)
+kexec_load              : EPERM (Operation not permitted)
+init_module             : EPERM (Operation not permitted)

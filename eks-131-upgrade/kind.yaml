@@ -1,0 +1,10 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: eks131-lab
+nodes:
+  - role: control-plane
+    image: kindest/node:v1.31.14
+  - role: worker
+    image: kindest/node:v1.31.14
+  - role: worker
+    image: kindest/node:v1.31.14

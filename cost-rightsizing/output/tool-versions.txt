@@ -1,0 +1,5 @@
+kind kind v0.33.0 go1.26.7 linux/amd64
+docker 26.1.5+dfsg1
+node image kindest/node:v1.37.0, kube-proxy mode nftables
+metrics-server v0.9.1, vpa-recommender 1.8.1
+Linux 6.12.113+

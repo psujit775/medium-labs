@@ -1,0 +1,26 @@
+# A stand-in for "run the code the model wrote". Same image, same securityContext in both runs.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: untrusted-RUNTIME
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      # runtimeClassName: gvisor
+      restartPolicy: Never
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: false
+        seccompProfile: {type: RuntimeDefault}
+      containers:
+      - name: main
+        image: python:3.13-alpine
+        command: ["python3", "/probe/probe.py"]
+        securityContext:
+          allowPrivilegeEscalation: false
+        volumeMounts:
+        - {name: probe, mountPath: /probe}
+      volumes:
+      - name: probe
+        configMap: {name: probe}

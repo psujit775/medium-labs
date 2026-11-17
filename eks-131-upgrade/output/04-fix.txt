@@ -1,0 +1,42 @@
+--- 1. move the APF manifests to flowcontrol.apiserver.k8s.io/v1 ---
+There were no resources found with known deprecated apiVersions.
+prioritylevelconfiguration.flowcontrol.apiserver.k8s.io/batch-jobs configured
+flowschema.flowcontrol.apiserver.k8s.io/batch-jobs configured
+--- 2. give the PDB room: replicas 2, changed in the manifest, not with kubectl scale ---
+deployment.apps/orders-api configured
+poddisruptionbudget.policy/orders-api configured
+Waiting for deployment "orders-api" rollout to finish: 1 of 2 updated replicas are available...
+deployment "orders-api" successfully rolled out
+NAME         ALLOWED
+orders-api   1
+--- 3. upgrade kubelets one node at a time ---
+== eks131-lab-worker
+node/eks131-lab-worker drained
+node/eks131-lab-worker uncordoned
+== eks131-lab-worker2
+error when evicting pods/"orders-api-8648db6689-g22vt" -n "default" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+node/eks131-lab-worker2 drained
+node/eks131-lab-worker2 uncordoned
+== eks131-lab-control-plane
+node/eks131-lab-control-plane drained
+node/eks131-lab-control-plane uncordoned
+node upgrades took 25s
+--- 4. verify: re-apply from Git, then wait for /readyz and check ---
+prioritylevelconfiguration.flowcontrol.apiserver.k8s.io/batch-jobs unchanged
+flowschema.flowcontrol.apiserver.k8s.io/batch-jobs unchanged
+deployment.apps/orders-api unchanged
+poddisruptionbudget.policy/orders-api configured
+readyz: ok
+  "gitVersion": "v1.32.11",
+NAME                       READY   KUBELET
+eks131-lab-control-plane   True    v1.32.11
+eks131-lab-worker          True    v1.32.11
+eks131-lab-worker2         True    v1.32.11
+POD                           NODE                STATUS
+orders-api-8648db6689-65psh   eks131-lab-worker   Running
+orders-api-8648db6689-mpgwk   eks131-lab-worker   Running
+There were no resources found with known deprecated apiVersions.
+
+real	0m28.623s
+user	0m1.060s
+sys	0m0.455s

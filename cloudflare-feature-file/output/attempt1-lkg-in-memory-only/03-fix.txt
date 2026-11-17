@@ -1,0 +1,27 @@
+[fix] seeded last-known-good file (gen=0) with 60 features on 3 edges
+--- after fix (publisher is still pushing bad files) ---
+03:09:01 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+03:09:02 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+03:09:03 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+03:09:04 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+03:09:05 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+03:09:06 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+03:09:07 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+03:09:08 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+03:09:09 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+03:09:10 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+03:09:11 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+03:09:12 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+03:09:13 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+03:09:14 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+03:09:15 [probe] 500 500 500 | 500 edge1 worker panicked: no config yet
+[probe] summary: 0 ok, 45 errors (100% 5xx)
+--- edge1 log tail ---
+03:08:59 [edge1] listening on :8081 loader=safe max_features=100
+03:09:01 [edge1] REJECTED gen=12 (120 features > limit 100); keeping last-known-good gen=None
+03:09:06 [edge1] REJECTED gen=13 (120 features > limit 100); keeping last-known-good gen=None
+03:09:11 [edge1] REJECTED gen=14 (120 features > limit 100); keeping last-known-good gen=None
+
+real	0m17.143s
+user	0m0.087s
+sys	0m0.013s

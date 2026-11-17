@@ -1,0 +1,27 @@
+[fix] seeded last-known-good file (gen=0) with 60 features on 3 edges
+--- after fix (publisher is still pushing bad files) ---
+03:10:28 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+03:10:29 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+03:10:30 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+03:10:31 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+03:10:32 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+03:10:33 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+03:10:34 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+03:10:35 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+03:10:36 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+03:10:37 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+03:10:38 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+03:10:39 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+03:10:40 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+03:10:41 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+03:10:42 [probe] 200 200 200 | 200 OK edge1 gen=0 bot_score=42
+[probe] summary: 45 ok, 0 errors (0% 5xx)
+--- edge1 log tail ---
+03:10:26 [edge1] listening on :8081 loader=safe max_features=100
+03:10:28 [edge1] REJECTED gen=12 (120 features > limit 100); keeping last-known-good gen=0
+03:10:33 [edge1] REJECTED gen=13 (120 features > limit 100); keeping last-known-good gen=0
+03:10:38 [edge1] REJECTED gen=14 (120 features > limit 100); keeping last-known-good gen=0
+
+real	0m17.148s
+user	0m0.081s
+sys	0m0.023s

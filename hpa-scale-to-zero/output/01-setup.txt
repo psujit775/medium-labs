@@ -1,0 +1,42 @@
+Creating cluster "hpa-zero-lab" ...
+ • Ensuring node image (kindest/node:v1.37.0) 🖼️  ...
+ ✓ Ensuring node image (kindest/node:v1.37.0) 🖼️
+ • Preparing nodes 📦   ...
+ ✓ Preparing nodes 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Waiting ≤ 2m0s for control-plane = Ready ⏳  ...
+ ✓ Waiting ≤ 2m0s for control-plane = Ready ⏳
+ • Ready after 17s 💚
+Set kubectl context to "kind-hpa-zero-lab"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-hpa-zero-lab
+
+Have a nice day! 👋
+namespace/monitoring created
+configmap/fake-queue created
+deployment.apps/fake-queue created
+service/fake-queue created
+configmap/prometheus created
+deployment.apps/prometheus created
+service/prometheus created
+deployment "prometheus" successfully rolled out
+deployment "fake-queue" successfully rolled out
+deployment.apps/queue-worker created
+Waiting for deployment "queue-worker" rollout to finish: 0 of 1 updated replicas are available...
+deployment "queue-worker" successfully rolled out
+NAME                              SERVICE                         AVAILABLE   AGE
+v1beta1.external.metrics.k8s.io   monitoring/prometheus-adapter   True        34s
+            "metricName": "queue_consumer_lag",
+            "value": "0"
+
+real	1m4.925s
+user	0m3.656s
+sys	0m2.724s

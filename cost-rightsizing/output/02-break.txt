@@ -1,0 +1,32 @@
+namespace/shop created
+deployment.apps/web created
+deployment.apps/worker created
+deployment.apps/reports created
+deployment.apps/search created
+verticalpodautoscaler.autoscaling.k8s.io/web created
+verticalpodautoscaler.autoscaling.k8s.io/worker created
+verticalpodautoscaler.autoscaling.k8s.io/reports created
+--- pods ---
+reports-696897bfc7-5xsw4 Pending
+search-5d4d67675f-f2hcb Pending
+reports-696897bfc7-z6plp Running
+search-5d4d67675f-54vjc Running
+web-fc7ccc4c-9jh2k Running
+web-fc7ccc4c-l2sj8 Running
+web-fc7ccc4c-xqdkk Running
+worker-c6c75d96f-h8lb2 Running
+worker-c6c75d96f-jdkxh Running
+--- why is search Pending? ---
+0/1 nodes are available: 1 Insufficient cpu. preemption: 0/1 nodes are available: 1 No preemption victims found for incoming pod.
+--- requests vs usage ---
+(requests counted for Running pods only)
+deploy   run/pods  cpu req cpu used  mem req mem used
+reports       1/2    1000m       1m   1024Mi     23Mi
+search        1/2     500m       1m    256Mi      3Mi
+web           3/3    3000m      24m   3072Mi    129Mi
+worker        2/2    2000m     107m   2048Mi    246Mi
+total                6500m     133m   6400Mi    401Mi
+--- node: requested vs allocatable, and real usage ---
+  cpu                7600m (95%)   200m (2%)
+  memory             7390Mi (46%)  7740Mi (48%)
+real usage: cpu 240m (3%), memory 1131Mi (7%)

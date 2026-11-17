@@ -1,0 +1,13 @@
+prometheus:
+  url: http://prometheus.monitoring.svc
+  port: 9090
+metricsRelistInterval: 15s
+rules:
+  default: false
+  external:
+  - seriesQuery: '{__name__="queue_consumer_lag",name!=""}'
+    metricsQuery: sum(<<.Series>>{<<.LabelMatchers>>}) by (name)
+    resources:
+      overrides:
+        namespace:
+          resource: namespace

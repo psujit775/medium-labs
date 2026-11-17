@@ -1,0 +1,6 @@
+kind kind v0.33.0 go1.26.7 linux/amd64
+docker 26.1.5+dfsg1
+node image kindest/node:v1.35.8 (kube-proxy nftables)
+Client Version: v1.37.2
+argocd: v3.6.1+94037c4
+Linux 6.12.113+

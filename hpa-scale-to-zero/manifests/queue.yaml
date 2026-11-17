@@ -1,0 +1,50 @@
+# A fake queue: GET /metrics shows queue_consumer_lag, POST /set?n=42 changes it.
+apiVersion: v1
+kind: Namespace
+metadata: {name: monitoring}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata: {name: fake-queue, namespace: default}
+data:
+  queue.py: |
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+    from urllib.parse import urlparse, parse_qs
+    lag = 0
+    class H(BaseHTTPRequestHandler):
+        def do_GET(self):
+            body = ("# TYPE queue_consumer_lag gauge\n"
+                    f'queue_consumer_lag{{name="worker_tasks"}} {lag}\n').encode()
+            self.send_response(200)
+            self.send_header("Content-Type", "text/plain; version=0.0.4")  # Prometheus 3 rejects a blank one
+            self.end_headers(); self.wfile.write(body)
+        def do_POST(self):
+            global lag
+            lag = int(parse_qs(urlparse(self.path).query)["n"][0])
+            self.send_response(200); self.end_headers(); self.wfile.write(f"lag={lag}\n".encode())
+        def log_message(self, *a): pass
+    HTTPServer(("", 8000), H).serve_forever()
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: fake-queue, namespace: default}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: fake-queue}}
+  template:
+    metadata: {labels: {app: fake-queue}}
+    spec:
+      containers:
+      - name: q
+        image: python:3.13-alpine
+        command: ["python3", "-u", "/app/queue.py"]
+        ports: [{containerPort: 8000}]
+        volumeMounts: [{name: app, mountPath: /app}]
+      volumes: [{name: app, configMap: {name: fake-queue}}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: fake-queue, namespace: default}
+spec:
+  selector: {app: fake-queue}
+  ports: [{port: 8000}]

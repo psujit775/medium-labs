@@ -1,0 +1,33 @@
+--- 1. give the HPA a running workload (1 replica) ---
+deployment.apps/queue-worker scaled
+horizontalpodautoscaler.autoscaling/queue-worker created
+--- 2. queue drains to 0, wait for the HPA to scale to zero ---
+lag=0
+lag=0
+05:50:07 scaled to zero 41s after the queue emptied: replicas=3 desired=0 metric=0
+AbleToScale=True (SucceededRescale)
+ScalingActive=True (ValidMetricFound)
+ScalingLimited=False (DesiredWithinRange)
+ScaledToZero=True (ScaledToZero)
+--- 3. work arrives: queue=45, time until a worker pod is Ready (cold start) ---
+lag=45
+05:50:20 first worker Ready after 10.4s
+05:50:40 replicas=2 desired=3 metric=45
+ScaledToZero=False (NotScaledToZero)
+--- 4. a burst: queue=200 ---
+lag=200
+lag=200
+05:51:13 replicas=7 desired=10 metric=200
+--- 5. queue empties again ---
+lag=0
+05:51:35 back at zero after 20s: replicas=10 desired=0 metric=0
+--- HPA events ---
+SuccessfulRescale   New size: 3; reason: external metric queue_consumer_lag(&LabelSelector{MatchLabels:map[string]string{name: worker_tasks,},MatchExpressions:[]LabelSelectorRequirement{},}) above target
+SuccessfulRescale   New size: 0; reason: All metrics below target
+SuccessfulRescale   New size: 2; reason: external metric queue_consumer_lag(&LabelSelector{MatchLabels:map[string]string{name: worker_tasks,},MatchExpressions:[]LabelSelectorRequirement{},}) above target
+SuccessfulRescale   New size: 7; reason: external metric queue_consumer_lag(&LabelSelector{MatchLabels:map[string]string{name: worker_tasks,},MatchExpressions:[]LabelSelectorRequirement{},}) above target
+SuccessfulRescale   New size: 10; reason: external metric queue_consumer_lag(&LabelSelector{MatchLabels:map[string]string{name: worker_tasks,},MatchExpressions:[]LabelSelectorRequirement{},}) above target
+
+real	2m11.587s
+user	0m2.107s
+sys	0m0.859s

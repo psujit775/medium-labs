@@ -1,0 +1,17 @@
+03:09:33 [edge3] listening on :8083 loader=naive max_features=100
+03:09:35 [edge3] loaded gen=1 features=60
+03:09:38 [edge3] loaded gen=2 features=60
+03:09:43 [edge3] loaded gen=3 features=120
+03:09:48 [edge3] loaded gen=4 features=60
+03:09:53 [edge3] loaded gen=5 features=60
+03:09:58 [edge3] loaded gen=6 features=120
+03:10:03 [edge3] loaded gen=7 features=60
+03:10:08 [edge3] loaded gen=8 features=60
+03:10:16 [edge3] loaded gen=9 features=120
+03:10:18 [edge3] loaded gen=10 features=120
+03:10:23 [edge3] loaded gen=11 features=120
+03:10:26 [edge3] started from last-known-good gen=0 features=60
+03:10:26 [edge3] listening on :8083 loader=safe max_features=100
+03:10:28 [edge3] REJECTED gen=12 (120 features > limit 100); keeping last-known-good gen=0
+03:10:33 [edge3] REJECTED gen=13 (120 features > limit 100); keeping last-known-good gen=0
+03:10:38 [edge3] REJECTED gen=14 (120 features > limit 100); keeping last-known-good gen=0

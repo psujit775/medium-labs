@@ -1,0 +1,13 @@
+[db] init node-a
+[db] init node-b
+--- healthy baseline ---
+03:08:08 [probe] 200 200 200 | 200 OK edge1 gen=1 bot_score=42
+03:08:09 [probe] 200 200 200 | 200 OK edge1 gen=1 bot_score=42
+03:08:10 [probe] 200 200 200 | 200 OK edge1 gen=1 bot_score=42
+03:08:11 [probe] 200 200 200 | 200 OK edge1 gen=2 bot_score=42
+03:08:12 [probe] 200 200 200 | 200 OK edge1 gen=2 bot_score=42
+[probe] summary: 15 ok, 0 errors (0% 5xx)
+
+real	0m7.109s
+user	0m0.062s
+sys	0m0.027s

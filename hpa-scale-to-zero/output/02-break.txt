@@ -1,0 +1,11 @@
+--- 1. minReplicas: 0 with only a CPU metric ---
+The HorizontalPodAutoscaler "queue-worker" is invalid: spec.metrics: Forbidden: must specify at least one Object or External metric to support scaling to zero replicas
+--- 2. scale the worker to 0 by hand, then create the queue HPA and add work ---
+deployment.apps/queue-worker scaled
+horizontalpodautoscaler.autoscaling/queue-worker created
+lag=90
+05:49:23 queue=90 for 60s: replicas= desired=0 metric=
+NAME           READY   UP-TO-DATE   AVAILABLE   AGE
+queue-worker   0/0     0            0           65s
+AbleToScale=True (SucceededGetScale)
+ScalingActive=False (ScalingDisabled)

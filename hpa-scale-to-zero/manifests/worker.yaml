@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: queue-worker, namespace: default}
+spec:
+  # no replicas field: the HPA owns the count
+  selector: {matchLabels: {app: queue-worker}}
+  template:
+    metadata: {labels: {app: queue-worker}}
+    spec:
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: worker
+        image: python:3.13-alpine
+        command: ["python3", "-c", "import time; print('worker started', flush=True)\nwhile True: time.sleep(1)"]
+        readinessProbe:
+          exec: {command: ["true"]}
+          periodSeconds: 2
+        resources:
+          requests: {cpu: 250m, memory: 256Mi}
